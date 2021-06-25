@@ -1,0 +1,25 @@
+<?php
+require_once ('../../database/DBHelper.php');
+
+if (!empty($_POST)) {
+    if (isset($_POST['action'])) {
+        $action = $_POST['action'];
+        switch ($action) {
+            case 'delete':
+                if (isset($_POST['id'])) {
+                    $id = $_POST['id'];
+                    $sql = 'delete from product where id = '.$id;
+                    
+                    execute($sql);
+                }
+                break;
+            case 'delete_img':
+                if (isset($_POST['id'])) {
+                    $id = $_POST['id'];
+                    $sql = 'delete from images where id = '.$id;
+                    execute($sql);
+                }
+                break;
+        }
+    }
+}
